@@ -1,0 +1,18 @@
+CREATE TABLE enquiries (
+  id VARCHAR(32) NOT NULL,
+  created_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  updated_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  name VARCHAR(120) NOT NULL,
+  phone VARCHAR(40) NOT NULL,
+  email VARCHAR(160) NOT NULL DEFAULT '',
+  location VARCHAR(180) NOT NULL DEFAULT '',
+  project_type VARCHAR(100) NOT NULL,
+  budget VARCHAR(80) NOT NULL DEFAULT '',
+  timeline VARCHAR(80) NOT NULL DEFAULT '',
+  description TEXT NOT NULL,
+  status VARCHAR(30) NOT NULL DEFAULT 'New',
+  notes TEXT NOT NULL DEFAULT '',
+  PRIMARY KEY (id),
+  KEY enquiries_created_at (created_at),
+  KEY enquiries_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

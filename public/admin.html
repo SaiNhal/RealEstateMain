@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>NEXSTRUCT | Admin</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section class="login-panel" id="loginPanel">
+        <a class="admin-brand" href="/">NEX<span>STRUCT</span></a>
+        <p class="kicker">Administration</p>
+        <h1>Project enquiries,<br />all in one place.</h1>
+        <p class="muted">Sign in securely to review every request submitted through the website.</p>
+        <form id="loginForm" class="login-form">
+          <label>Username<input name="username" autocomplete="username" required /></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" required /></label>
+          <p id="loginStatus" class="status" role="status"></p>
+          <button type="submit">Sign in to dashboard <span>→</span></button>
+        </form>
+      </section>
+      <section class="dashboard" id="dashboard" hidden>
+        <header class="dashboard-header">
+          <div><a class="admin-brand" href="/">NEX<span>STRUCT</span></a><p>Admin dashboard</p></div>
+          <button id="logoutButton" class="logout">Sign out</button>
+        </header>
+        <div class="dashboard-title"><div><p class="kicker">Lead workspace</p><h1>Project enquiries</h1><p class="muted">Every submitted enquiry is displayed below. Qualify opportunities, record follow-ups and keep every project conversation moving.</p></div><div class="title-actions"><a class="export" id="exportButton" href="/api/admin/export">Export all leads <span>↓</span></a><button id="refreshButton" class="refresh">Refresh <span>↻</span></button></div></div>
+        <section class="metrics" aria-label="Enquiry summary"><article><span>Total enquiries</span><strong id="totalCount">0</strong></article><article><span>Project types</span><strong id="typeCount">0</strong></article><article><span>Latest enquiry</span><strong id="latestDate">—</strong></article></section>
+        <section class="lead-tools" aria-label="Filter enquiries"><label class="search"><span>Search leads</span><input id="searchInput" type="search" placeholder="Name, phone, email or service" /></label><label><span>Lead status</span><select id="statusFilter"><option value="">All statuses</option><option>New</option><option>Contacted</option><option>Qualified</option><option>Won</option><option>Lost</option></select></label></section>
+        <p id="dashboardStatus" class="status" role="status"></p>
+        <p id="exportStatus" class="export-status" role="status" aria-live="polite"></p>
+        <section id="enquiryList" class="enquiry-list" aria-live="polite"></section>
+      </section>
+    </main>
+    <script src="admin.js"></script>
+  </body>
+</html>
